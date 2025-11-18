@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WATS Auto-Triage System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 WATS Auto-Triage System</h1>
+            <p class="subtitle">Automated Test Failure Triage & JIRA Management</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>About This System</h2>
+                <p>WATS Auto-Triage System automates the process of triaging test failures and managing JIRA tickets with:</p>
+                <ul>
+                    <li>Automated failure matching and categorization</li>
+                    <li>JIRA ticket creation and management</li>
+                    <li>Image comparison for visual validation</li>
+                    <li>Multi-feature support (Driver, Rider, Freight, U4B, etc.)</li>
+                    <li>RESTful API for integration</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Run Auto-Triage</h2>
+                <div class="form-section">
+                    <label for="feature-select">Select Feature:</label>
+                    <select id="feature-select" class="input-field">
+                        <option value="">-- Select Feature --</option>
+                        <option value="driver">Driver</option>
+                        <option value="rider">Rider</option>
+                        <option value="freight">Freight</option>
+                        <option value="u4b">U4B</option>
+                        <option value="londongrat">London GRAT</option>
+                        <option value="tooling">Tooling</option>
+                        <option value="customerobsession">Customer Obsession</option>
+                    </select>
+                    <button onclick="runTriage()" class="btn-primary">Start Triage</button>
+                    <div id="triage-result" class="api-result"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 View Data</h2>
+                <div class="button-group">
+                    <button onclick="getTriagedData()" class="btn-secondary">Get Triaged Data</button>
+                    <button onclick="getUntriaged Data()" class="btn-secondary">Get Untriaged Data</button>
+                    <button onclick="getAllTasks()" class="btn-secondary">View All Tasks</button>
+                </div>
+                <div id="data-result" class="api-result"></div>
+            </div>
+
+            <div class="card">
+                <h2>💬 JIRA Management</h2>
+                <div class="form-section">
+                    <label for="comment-date">Execution Date:</label>
+                    <input type="date" id="comment-date" class="input-field" value="">
+                    <button onclick="addComments()" class="btn-primary">Add Comments to JIRA</button>
+                    <div id="comment-result" class="api-result"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🛠️ Utilities</h2>
+                <div class="button-group">
+                    <button onclick="processSkipped()" class="btn-warning">Process Skipped Items</button>
+                    <button onclick="cleanFiles()" class="btn-danger">Clean Temporary Files</button>
+                </div>
+                <div id="utility-result" class="api-result"></div>
+            </div>
+
+            <div class="card">
+                <h2>📡 API Endpoints</h2>
+                <div class="api-docs">
+                    <div class="api-section">
+                        <h3>POST /api/triage/run</h3>
+                        <p>Start auto-triage for a feature</p>
+                        <code>{"feature_name": "driver"}</code>
+                    </div>
+                    <div class="api-section">
+                        <h3>GET /api/triage/status/&lt;task_id&gt;</h3>
+                        <p>Get status of a running task</p>
+                    </div>
+                    <div class="api-section">
+                        <h3>GET /api/triage/triaged-data</h3>
+                        <p>Get all triaged test data</p>
+                    </div>
+                    <div class="api-section">
+                        <h3>GET /api/triage/untriaged-data?feature_name=driver</h3>
+                        <p>Get untriaged data for a specific feature</p>
+                    </div>
+                    <div class="api-section">
+                        <h3>POST /api/comments/add</h3>
+                        <p>Add comments to JIRA tickets</p>
+                        <code>{"exe_date": "2025-11-17", "triage_by": "auto-triage"}</code>
+                    </div>
+                    <div class="api-section">
+                        <h3>POST /api/triage/skipped</h3>
+                        <p>Process skipped triage items</p>
+                    </div>
+                    <div class="api-section">
+                        <h3>POST /api/clean</h3>
+                        <p>Clean temporary files and databases</p>
+                    </div>
+                    <div class="api-section">
+                        <h3>GET /api/tasks</h3>
+                        <p>Get status of all tasks</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with Flask & Python | WATS Auto-Triage System</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

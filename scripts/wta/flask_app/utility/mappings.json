@@ -1,0 +1,55 @@
+{
+  "lob_label": {
+    "rider": ["GSS_Product_Rider"],
+    "marketplace": ["GSS_Product_Marketplace"],
+    "earner.BYOQIncentivesTest": ["GSS_Product_Marketplace"],
+    "u4b": ["GSS_U4B_Testing"],
+    "e4b": ["GSS_U4B_Testing"],
+    ".tfl.": ["GSS_London_GRAT"],
+    "usnc": ["GSS_US&C_Testing"],
+    "safety": ["GSS_Product_Safety_and_Insurance"],
+    "help": ["GSS_Product_Customer_Obsession"],
+    "identity": ["GSS_Product_Identity", "gss_app_test"],
+    "payments": ["GSS_Product_Money"],
+    "eatercoreflows": ["Flawless_Eater_Core_Flows", "GSS_APP_TEST"],
+    "eatsaiassistflows": ["Flawless_Eater_Core_Flows", "GSS_APP_TEST"],
+    "test.ubereatsorders": ["Uber_Eats_Order_Flows", "GSS_APP_TEST"],
+    "earner": ["GSS_Product_Driver"], 
+    "airportsanity": ["GSS_Product_Driver"],
+    "userworkflow": ["#E2EUserWorkFlow", "#E2EUWFCriticalTriage"],
+    "freight": ["GSS_Product_Freight"]
+  },
+  "application_details": {
+    "eats": {
+      "application_label": ["GSS_App_Type_Eats"],
+      "application_id": "12921"
+    },
+    "helix_dual": {
+      "application_label": ["GSS_App_Type_Helix"],
+      "application_id": "12919"
+    },
+    "carbon": {
+      "application_label": ["GSS_App_Type_Carbon"],
+      "application_id": "12920"
+    }
+    ,
+    "freight": {
+      "application_label": ["GSS_App_Type_Freight"],
+      "application_id": "14604"
+    },
+    "uber_eats_orders_restaurants": {
+      "application_label": ["GSS_APP_Type_Uber_Eats_Order"],
+      "application_id": "12921"
+    }
+  },
+  "platform_details": {
+    "android": {
+      "platform_label": ["#E2EAndroid"],
+      "platform_id": "12923"
+    },
+    "ios": {
+      "platform_label": ["#E2EiOS"],
+      "platform_id": "12924"
+    }
+  }
+}

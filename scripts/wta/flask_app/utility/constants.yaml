@@ -1,0 +1,17 @@
+jira_project_id: 10820
+spreadsheet_id: 1Z2_3W3LnyfFGy_HQBb3jWX9J-hBMueQdiLfAqWwCxio
+spreadsheet_range: Master Sheet
+user: pedara@ext.uber.com
+jira:
+    base_url: https://t3.uberinternal.com
+    usso_auth:
+        client_id: ZAfRK9d07kt0Ae2gEiYxVzmsFAFiqueZuK8MQyK4 
+        client_secret: dPvWreBXGgRZ5cdL6wiD84CoZQUCAwDkeJR7DsJO 
+        token_url: https://usso.uberinternal.com/oauth2/token
+e2e_po_pb_labels:
+  - '#E2EAppium'
+  - '#E2EAutomation'
+  - '#E2EAutomationOnly'
+  - '#E2EOneTime'
+  - '#E2EPotentialPB'
+  - '#E2EUntriaged'
