@@ -278,11 +278,11 @@ def remove_tags(text):
 
 def load_constant_yaml():
     """Load YAML from package resources."""
-    with pkg_resources.open_text('src.utility', 'constants.yaml') as file:
+    with pkg_resources.open_text('utility', 'constants.yaml') as file:
         return yaml.safe_load(file)
 
 def load_mapping_data():
-    with pkg_resources.open_text('src.utility', 'mappings.json') as file:
+    with pkg_resources.open_text('utility', 'mappings.json') as file:
         return json.load(file)
 
 if __name__ == "__main__":
