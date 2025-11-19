@@ -93,7 +93,6 @@ def download_images_from_wats_terrablob(url, local_dir_path, filename, max_retri
     while retries < max_retries:
         if not os.path.exists(target_path) or not utils.is_image_valid(target_path):
             try:
-                print(source_path)
                 subprocess.run(f"tb-cli --usso-token=$(utoken create) get {source_path}{img_name} {target_path} -t 2m", shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
             except subprocess.CalledProcessError as e:
                 print(f"Error occurred while downloading the image: {e}")
@@ -236,9 +235,6 @@ def iterate_matching_failure_for_wats(untriaged_data, triaged_data, feature_name
         filtered_triaged_data = triaged_data[triaged_data['failure_reason'].str[:25] == curr_failure_prefix] if curr_failure_prefix else triaged_data
 
         for _prevIdx, similar_method in filtered_triaged_data.iterrows():
-
-            print(curr_failure['run_uuid'])
-            print(similar_method['run_uuid'])
 
             similar_method['jira_ticket'] = JiraAuth.latest_jira_key(client, similar_method['jira_ticket'])
 

@@ -233,9 +233,6 @@ def iterate_matching_failure_for_wats(untriaged_data, triaged_data, feature_name
 
         for _prevIdx, similar_method in filtered_triaged_data.iterrows():
 
-            print(curr_failure['run_uuid'])
-            print(similar_method['run_uuid'])
-
             similar_method['jira_ticket'] = JiraAuth.latest_jira_key(client, similar_method['jira_ticket'])
 
             if similar_method['jira_ticket'] in ticket_status_cache:
@@ -284,19 +281,19 @@ if __name__ == "__main__":
     
     # customerobsession, u4b, londongrat, rider, freight, driver, tooling
     
-    untriaged_data = get_untriaged_data_from_wats(feature_name)
     triaged_data = get_triaged_data_from_wats()
     if len(triaged_data) < 2:
         triaged_data = get_triaged_data_from_wats()
-    
-    print(f"Total triaged data: {len(triaged_data)}")
+    untriaged_data = get_untriaged_data_from_wats(feature_name)
+    print(f"Total untriaged data: {len(untriaged_data)}")
     iterate_matching_failure_for_wats(untriaged_data, triaged_data, feature_name)
     
-    today_triaged_data = DBQueryExecutor.get_today_triaged_data_from_wats()
-    print(f"Today's triaged data: {len(today_triaged_data)}")
-    today_skipped_data = DBQueryExecutor.get_untriaged_skipped_data_from_wats()
-    print(f"Today's skipped data: {len(today_skipped_data)}")
     
+    
+    today_triaged_data = DBQueryExecutor.get_today_triaged_data_from_wats()
+    print(len(today_triaged_data))
+    today_skipped_data = DBQueryExecutor.get_untriaged_skipped_data_from_wats()
+    print(len(today_skipped_data))
     for _idx, data in today_skipped_data.iterrows():
         filter_triaged_data = today_triaged_data.loc[today_triaged_data['execution_uuid'] == data['execution_uuid']]
         if len(filter_triaged_data) != 0:
