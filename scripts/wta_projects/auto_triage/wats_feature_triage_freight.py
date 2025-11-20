@@ -81,7 +81,7 @@ def download_images_from_wats_terrablob(url, local_dir_path, filename, max_retri
     if not os.path.exists(local_dir_path):
         os.makedirs(local_dir_path)
     
-    # source_path = get_substring(url, '-', False).replace("last_snapshot.png", "")
+    # source_path = get_substring(url, '-', False).replace("last_snapshot.png", "" )
     source_path = url
     output = subprocess.run(f'tb-cli --usso-token=$(utoken create) ls {source_path} | grep "retry-1_screenshot"', shell=True, capture_output=True, text=True)
     img_name = output.stdout.strip()
